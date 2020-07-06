@@ -31,6 +31,9 @@ public class RetrieveEmailsUsingPOP3 {
         //---------- Server Setting---------------
         properties.put("mail.pop3.host", host);
         properties.put("mail.pop3.port", port);
+        properties.setProperty("proxySet", "true");
+        properties.setProperty("socksProxyHost", "127.0.0.1");
+        properties.setProperty("socksProxyPort", "1080");
         if (secureCon.equalsIgnoreCase("ssl")) {
             properties.put("mail.smtp.ssl.enable", "true");
         } else {
@@ -134,9 +137,9 @@ public class RetrieveEmailsUsingPOP3 {
         Properties props = null;
         try {
             props = System.getProperties();
-//            props.setProperty("proxySet", "true");
-//            props.setProperty("socksProxyHost", "127.0.0.1");
-//            props.setProperty("socksProxyPort", "1080");
+            props.setProperty("proxySet", "true");
+            props.setProperty("socksProxyHost", "127.0.0.1");
+            props.setProperty("socksProxyPort", "1080");
         } catch (SecurityException sex) {
             props = new Properties();
         }
