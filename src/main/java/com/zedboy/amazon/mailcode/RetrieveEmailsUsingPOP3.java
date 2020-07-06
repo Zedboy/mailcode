@@ -1,5 +1,4 @@
 package com.zedboy.amazon.mailcode;
-
 import org.apache.commons.lang3.StringUtils;
 
 import javax.mail.*;
@@ -23,6 +22,7 @@ public class RetrieveEmailsUsingPOP3 {
     private final static String JPASUBJECT = "お客様のAmazon確認コード";
     private final static String COMSUBJECT = "Verify your new Amazon account";
     private final static String COMASUBJECT = "Amazon Authentication";
+    private final static String DEASUBJECT = "Ihr Amazon-Verifizierungscode";
     private final static String COMALERTSUBJECT = "Amazon security alert: Unusual sign-in attempt detected";
     private final static String JPALERTSUBJECT = "Amazonセキュリティ警告: サインイン試行が検出されました";
 
@@ -31,11 +31,6 @@ public class RetrieveEmailsUsingPOP3 {
         //---------- Server Setting---------------
         properties.put("mail.pop3.host", host);
         properties.put("mail.pop3.port", port);
-//        if (host.equals(MAILRUPOP3HOST)) {
-//            properties.setProperty("proxySet", "true");
-//            properties.setProperty("socksProxyHost", "127.0.0.1");
-//            properties.setProperty("socksProxyPort", "1080");
-//        }
         if (secureCon.equalsIgnoreCase("ssl")) {
             properties.put("mail.smtp.ssl.enable", "true");
         } else {
@@ -79,7 +74,7 @@ public class RetrieveEmailsUsingPOP3 {
                 }
             }
             // store attachment file name, separated by comma
-            else if (subject.equals(JPSUBJECT) || subject.equals(JPASUBJECT) || subject.equals(COMSUBJECT) || subject.equals(COMASUBJECT)) {
+            else if (subject.equals(DEASUBJECT) || subject.equals(JPSUBJECT) || subject.equals(JPASUBJECT) || subject.equals(COMSUBJECT) || subject.equals(COMASUBJECT)) {
                 if (contentType.contains("multipart")) {
                     // content may contain attachments
                     Multipart multiPart = (Multipart) message.getContent();
