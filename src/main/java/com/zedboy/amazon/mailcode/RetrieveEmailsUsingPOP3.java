@@ -111,6 +111,7 @@ public class RetrieveEmailsUsingPOP3 {
                 host = _163POP3HOST;
                 break;
             case "mail.ru":
+            case "list.ru":
                 host = MAILRUPOP3HOST;
                 break;
         }
@@ -161,8 +162,8 @@ public class RetrieveEmailsUsingPOP3 {
      * @throws ParseException
      */
     public static void main(String[] args) throws IOException, ParseException, MessagingException {
-        String userName = "ugadcdbiadrg@mail.ru";
-        String password = "ZxOvocHfuOx9y";
+        String userName = "AlgerTomdMzAy@yahoo.com";
+        String password = "bqbnypowqxrjwtrq";
         String secureCon = "ssl";
 
         RetrieveEmailsUsingPOP3 oep = new RetrieveEmailsUsingPOP3();
